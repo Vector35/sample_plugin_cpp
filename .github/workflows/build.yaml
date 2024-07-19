@@ -29,12 +29,20 @@ jobs:
           }
         version: 
         # These work but are excessive for building
-        # - v03.02.03814
-        # - v3.3.3996
-        # - v3.4.4271-stable
-        - v3.5.4526-stable
-        - v4.0.4958-stable
-        - dev
+        # - name: v03.02.03814
+        #   patch-file: ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch
+        # - name: v3.3.3996
+        #   patch-file: ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch
+        # - name: v3.4.4271-stable
+        #   patch-file: ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch
+        - name: v3.5.4526-stable
+          patch-file: ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch
+        - name: v4.0.4958-stable
+          patch-file: ../.github/workflows/4.0_0001-Support-building-plugins-without-an-install.patch
+        - name: v4.1.5747-stable
+          patch-file: ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch
+        - name: dev
+          patch-file: ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch
     steps:
     - uses: actions/checkout@v3
       with:
@@ -45,15 +53,13 @@ jobs:
       run: |
         cd binaryninjaapi
         git fetch --tags
-        git checkout --force ${{matrix.version}}
+        git checkout --force ${{matrix.version.name}}
         git submodule update --init --recursive
     - name: Patch api to allow building headlessly
       shell: bash
       run: |
         cd binaryninjaapi
-        git apply --verbose ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch \
-        || git apply --verbose ../.github/workflows/4.0_0001-Support-building-plugins-without-an-install.patch \
-        || git apply --verbose ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch 
+        git apply --verbose ${{matrix.version.patch-file}} 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -G Ninja -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
     - name: Build
@@ -61,5 +67,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{matrix.config.name}}-${{matrix.version}}
+        name: ${{matrix.config.name}}-${{matrix.version.name}}
         path: ${{github.workspace}}/build/*TestPlugin*
