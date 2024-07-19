@@ -6,13 +6,14 @@ Included is support for automated builds using the GitHub Actions CI.
 ## Compatibility
 
 This repo has been tested on the following versions of Binary Ninja:
-* Binary Ninja 4.1.5071-dev
+* Binary Ninja 4.1.5747
 * Binary Ninja 4.0.4958
 * Binary Ninja 3.5.4526
 
 And the following operating systems:
 * Windows 11
 * Windows 10
+* Ubuntu 24.04
 * Ubuntu 22.04
 * macOS 14
 * macOS 13

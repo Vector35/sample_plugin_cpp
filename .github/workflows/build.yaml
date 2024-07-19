@@ -27,7 +27,7 @@ jobs:
             os: ubuntu-22.04,
             name: ubuntu
           }
-        version: 
+        version:
         # These work but are excessive for building
         # - name: v03.02.03814
         #   patch-file: ../.github/workflows/3.5_0001-Support-building-plugins-without-an-install.patch
