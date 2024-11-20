@@ -64,7 +64,7 @@ jobs:
         git checkout --force ${{matrix.version.name}}
         git submodule update --init --recursive
     - name: Patch api to allow building headlessly
-      if: ${{ matrix.use-patch }}
+      if: ${{ matrix.version.use-patch }}
       shell: bash
       run: |
         cd binaryninjaapi
