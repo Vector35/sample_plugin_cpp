@@ -9,7 +9,6 @@ This repo has been tested on the following versions of Binary Ninja:
 * Binary Ninja 4.2.6455
 * Binary Ninja 4.1.5747
 * Binary Ninja 4.0.4958
-* Binary Ninja 3.5.4526
 
 And the following operating systems:
 * Windows 11
