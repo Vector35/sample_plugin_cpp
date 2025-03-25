@@ -52,7 +52,7 @@ jobs:
         - name: dev
           use-patch: false
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: 'true'
     - uses: seanmiddleditch/gha-setup-ninja@master
@@ -74,7 +74,7 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{matrix.config.name}}-${{matrix.version.name}}
         path: ${{github.workspace}}/build/*TestPlugin*
