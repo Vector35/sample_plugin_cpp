@@ -61,7 +61,7 @@ jobs:
           use-patch: false
           artifact-name: dev
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: 'true'
     - uses: seanmiddleditch/gha-setup-ninja@master
