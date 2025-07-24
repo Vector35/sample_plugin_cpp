@@ -47,14 +47,19 @@ jobs:
         - name: v4.1.5747-stable
           patch-file: ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch
           use-patch: true
+          artifact-name: v4.1.5747-stable
         - name: v4.2.6455-stable
           use-patch: false
+          artifact-name: v4.2.6455-stable
         - name: v5.0.7290-stable
           use-patch: false
+          artifact-name: v5.0.7290-stable
         - name: stable/5.1.8005
           use-patch: false
+          artifact-name: v5.1.8005-stable
         - name: dev
           use-patch: false
+          artifact-name: dev
     steps:
     - uses: actions/checkout@v3
       with:
@@ -80,5 +85,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{matrix.config.name}}-${{matrix.version.name}}
+        name: ${{matrix.config.name}}-${{matrix.version.artifact-name}}
         path: ${{github.workspace}}/build/*TestPlugin*
