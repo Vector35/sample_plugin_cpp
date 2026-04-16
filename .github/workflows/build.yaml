@@ -95,7 +95,7 @@ jobs:
       if: ${{ matrix.version.rewrite-snippets }}
     - name: Update submodules
       run: |
-        git submodule update --init --recursive
+        git -C binaryninjaapi submodule update --init --recursive
     - name: Patch api to allow building headlessly
       if: ${{ matrix.version.use-patch }}
       shell: bash
