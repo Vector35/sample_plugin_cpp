@@ -20,7 +20,7 @@ jobs:
             name: windows
           }
         - {
-            os: macos-13,
+            os: macos-15,
             name: macos
           }
         - {
@@ -44,19 +44,25 @@ jobs:
         # - name: v4.0.4958-stable
         #   patch-file: ../.github/workflows/4.0_0001-Support-building-plugins-without-an-install.patch
         #   use-patch: true
-        - name: v4.1.5747-stable
-          patch-file: ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch
-          use-patch: true
-          artifact-name: v4.1.5747-stable
-        - name: v4.2.6455-stable
-          use-patch: false
-          artifact-name: v4.2.6455-stable
+        # - name: v4.1.5747-stable
+        #   patch-file: ../.github/workflows/4.1_0001-Support-building-plugins-without-an-install.patch
+        #   use-patch: true
+        #   artifact-name: v4.1.5747-stable
+        # - name: v4.2.6455-stable
+        #   use-patch: false
+        #   artifact-name: v4.2.6455-stable
         - name: v5.0.7290-stable
           use-patch: false
           artifact-name: v5.0.7290-stable
         - name: stable/5.1.8005
           use-patch: false
           artifact-name: v5.1.8005-stable
+        - name: stable/5.2.8614
+          use-patch: false
+          artifact-name: v5.2.8614-stable
+        - name: stable/5.3.9434
+          use-patch: false
+          artifact-name: v5.3.9434-stable
         - name: dev
           use-patch: false
           artifact-name: dev
