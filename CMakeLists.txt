@@ -27,6 +27,7 @@ project(TestPlugin CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 set(HEADLESS 1)
+set(BN_ALLOW_STUBS 1)
 find_path(
         BN_API_PATH
         NAMES binaryninjaapi.h
