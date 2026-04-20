@@ -12,12 +12,12 @@ This repo has been tested on the following versions of Binary Ninja:
 * Binary Ninja 5.0.7290
 
 And the following operating systems:
-* Windows 11
-* Windows 10
-* Ubuntu 24.04
-* Ubuntu 22.04
-* macOS 26
-* macOS 15
+* Windows 11 (x64)
+* Windows 10 (x64)
+* Ubuntu 24.04 (x64)
+* Ubuntu 22.04 (x64)
+* macOS 26 (x64 and arm64)
+* macOS 15 (x64 and arm64)
 
 Other versions may work, though! Later versions of operating systems will likely load fine, though later versions of Binary Ninja may need to be recompiled and possibly have the CI patches reworked.
 
